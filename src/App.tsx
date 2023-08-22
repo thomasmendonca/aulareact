@@ -2,6 +2,7 @@ import { Button } from "./components/Button/Button"
 import { Header } from "./components/Header/Header"
 import { Card } from "./components/Card/Card"
 import { Counter } from "./components/Counter/Counter"
+import { Form } from "./components/Form/Form"
 
 function App() {
   const user = {
@@ -17,7 +18,7 @@ function App() {
   ]
   return (
     <>
-      <Header userName={user.name}/>
+      {/* <Header userName={user.name}/>
       <p>{user.name}</p>
       <Button success>Salvar</Button>
       <Button danger>Cancelar</Button>
@@ -30,7 +31,8 @@ function App() {
           <Button>Adicionar</Button>
           </ Card>
         ) )}
-        <Counter></Counter>
+        <Counter></Counter> */}
+        <Form></Form>
     </>
   )
 }
