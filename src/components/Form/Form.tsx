@@ -5,7 +5,9 @@ export const Form = () =>{
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
     const [birthday, setBirthday] = useState("")
-    const [maritalStatus, setMaritalStatus] = useState("")
+    const [maritalStatus, setMaritalStatus] = useState("solteiro")
+
+    
 
     const handleChangeName = (event) =>{
         setName(event.target.value)
@@ -38,13 +40,17 @@ export const Form = () =>{
                     <option value="solteiro">Solteiro</option>
                     <option value="casado">Casado</option>
                     <option value="viuvo">Viuvo</option>
+                    <option value="divorciado">Divorciado</option>
                 </select>
                 <br />
                 <fieldset>
                     <legend>Documento</legend>
-                <input type="radio" value="CPF" name="documento" id="CPF"/>CPF
-                <input type="radio" value="CPF" name="documento" id="CPF"/>Documento
+                <input type="radio" value="cpf" name="documento" id="cpf"/>CPF
+                <input type="radio" value="documento" name="documento" id="documento"/>Documento
                 </fieldset>
+                <br />
+                <input type="checkbox" id="termos-condicoes" />
+                <label htmlFor="termos-condicoes">Aceitar termos e condições.</label>
                 
             </div>
         </form>
