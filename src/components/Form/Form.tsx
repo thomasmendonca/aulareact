@@ -5,7 +5,10 @@ export const Form = () =>{
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
     const [birthday, setBirthday] = useState("")
-    const [maritalStatus, setMaritalStatus] = useState("solteiro")
+    const [maritalStatus, setMaritalStatus] = useState("Não selecionado")
+    const [documentCPF, setDocumentCPF] = useState(false)
+    const [documentCNH, setDocumentCNH] = useState(false)
+    const [termosCondicoes, setTermosCondicoes] = useState(false)
 
     
 
@@ -21,10 +24,38 @@ export const Form = () =>{
     const handleChangeMaritalStatus = (event) =>{
         setMaritalStatus(event.target.value)
     }
+    const handleChangeDocumentCPF = (event) =>{
+        setDocumentCPF(event.target.checked)
+        setDocumentCNH(event.target.value)
+    }
+    const handleChangeDocumentCNH = (event) =>{
+        setDocumentCNH(event.target.checked)
+        setDocumentCNH(event.target.value)
+    }
+    const handleChangeTaC = (event) =>{
+        setTermosCondicoes(event.target.checked)
+        setDocumentCNH(event.target.value)
+    }
+    const handleSave = () =>{
+        const payload = {
+            nome: name,
+            sobrenome: lastName,
+            estado_civil: maritalStatus,
+            data_nascimento: birthday,
+            documento: documentCPF ? 'CPF' : 'CNH',
+            termos: termosCondicoes
+        }
+        console.log(payload)
+    }
+    
 
     return(
         <form>
-            <h3>{name},{lastName},{birthday}</h3>
+            <h3>Nome Completo: {name}{lastName} <br />
+                Idade: {birthday} <br />
+                Estado civil: {maritalStatus} <br />
+                Documento selecionado: {documentCNH}
+            </h3>
             <div className="form">
                 <label htmlFor="name">Nome</label>
                 <input type="text" id="name" onChange={handleChangeName}/>
@@ -37,20 +68,22 @@ export const Form = () =>{
                 <br />
                 <label htmlFor="maritalStatus">Estado civil</label>
                 <select id="maritalStatus" onChange={handleChangeMaritalStatus}>
-                    <option value="solteiro">Solteiro</option>
-                    <option value="casado">Casado</option>
-                    <option value="viuvo">Viuvo</option>
-                    <option value="divorciado">Divorciado</option>
+                    <option value="Solteiro">Solteiro</option>
+                    <option value="Casado">Casado</option>
+                    <option value="Viuvo">Viuvo</option>
+                    <option value="Divorciado">Divorciado</option>
                 </select>
-                <br />
+                <br /><br />
                 <fieldset>
                     <legend>Documento</legend>
-                <input type="radio" value="cpf" name="documento" id="cpf"/>CPF
-                <input type="radio" value="documento" name="documento" id="documento"/>Documento
+                <input type="radio" value="CPF" name="documento" id="cpf" onChange={handleChangeDocumentCPF}/><label htmlFor="cpf">CPF</label> <br />
+                <input type="radio" value="CNH" name="documento" id="cnh"onChange={handleChangeDocumentCNH}/><label htmlFor="cnh">CNH</label>
                 </fieldset>
                 <br />
-                <input type="checkbox" id="termos-condicoes" />
+                <input type="checkbox" id="termos-condicoes" onChange={handleChangeTaC}/>
                 <label htmlFor="termos-condicoes">Aceitar termos e condições.</label>
+                <br />
+                <button onClick={handleSave}>Salvar</button>
                 
             </div>
         </form>
