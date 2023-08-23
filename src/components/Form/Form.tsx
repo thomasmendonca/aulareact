@@ -46,6 +46,7 @@ export const Form = () =>{
             termos: termosCondicoes
         }
         console.log(payload)
+        
     }
     
 
@@ -83,7 +84,7 @@ export const Form = () =>{
                 <input type="checkbox" id="termos-condicoes" onChange={handleChangeTaC}/>
                 <label htmlFor="termos-condicoes">Aceitar termos e condições.</label>
                 <br />
-                <button onClick={handleSave}>Salvar</button>
+                <button onClick={handleSave} type="button">Salvar</button>
                 
             </div>
         </form>
