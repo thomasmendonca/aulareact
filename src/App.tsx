@@ -3,19 +3,21 @@ import { Header } from "./components/Header/Header"
 import { Card } from "./components/Card/Card"
 import { Counter } from "./components/Counter/Counter"
 import { Form } from "./components/Form/Form"
+import { AddressForm } from "./components/AdressForm/AddressForm"
+import { Address } from "./Pages/Address/Address"
 
 function App() {
-  const user = {
-    name: 'Thomas Nícolas',
-    image: ""
+  // const user = {
+  //   name: 'Thomas Nícolas',
+  //   image: ""
   
-  }  
+  // }  
 
-  const products = [
-    {id: 8, name: "Banana", value: 10},
-    {id: 9, name: "Mamão", value: 12},
-    {id: 10, name: "Maçã", value: 8},
-  ]
+  // const products = [
+  //   {id: 8, name: "Banana", value: 10},
+  //   {id: 9, name: "Mamão", value: 12},
+  //   {id: 10, name: "Maçã", value: 8},
+  // ]
   return (
     <>
       {/* <Header userName={user.name}/>
@@ -32,7 +34,9 @@ function App() {
           </ Card>
         ) )}
         <Counter></Counter> */}
-        <Form></Form>
+        {/* <Form></Form> */}
+        <Address></Address>
+        
     </>
   )
 }
