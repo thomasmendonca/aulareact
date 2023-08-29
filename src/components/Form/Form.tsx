@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useEffect, useLayoutEffect, useState} from "react"
 
 export const Form = () =>{
 
@@ -48,8 +48,18 @@ export const Form = () =>{
         console.log(payload)
         
     }
-    
+    useLayoutEffect(()=>{
+        // para manipular itens visuais
 
+    },[])
+    useEffect(()=>{
+        setName("")
+        setBirthday("")
+        setMaritalStatus("")
+        setDocumentCNH(false)
+        setDocumentCPF(false)
+        //para manipular dados quando carregar a página
+    },[])
     return(
         <form>
             <h3>Nome Completo: {name}{lastName} <br />
