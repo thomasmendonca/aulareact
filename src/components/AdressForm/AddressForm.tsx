@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
+import { AddressProps } from "../../Pages/Address/Address"
+
 interface  AddressDataProps {
-    addressData: object
+    addressData: AddressProps
 }
 
 export const AddressForm = ({addressData}:AddressDataProps) =>{
